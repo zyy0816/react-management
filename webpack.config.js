@@ -1,6 +1,5 @@
 
 const path = require('path');
-const webpack = require('webpack'); // 用于访问内置插件
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -26,10 +25,39 @@ module.exports = {
         exclude: /node_modules/
       }, {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"]
+        use: [{
+          loader: 'style-loader',
+        },
+        {
+          loader: 'css-loader',
+        },
+        {
+          loader: "postcss-loader",
+          options: {           // 如果没有options这个选项将会报错 No PostCSS Config found
+            plugins: (loader) => [
+              require('autoprefixer')(), //CSS浏览器兼容
+            ]
+          }
+        }]
       }, {
         test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader", "postcss-loader"]
+        use: [{
+          loader: 'style-loader',
+        },
+        {
+          loader: 'css-loader',
+        },
+        {
+          loader: 'less-loader',
+        },
+        {
+          loader: "postcss-loader",
+          options: {           // 如果没有options这个选项将会报错 No PostCSS Config found
+            plugins: (loader) => [
+              require('autoprefixer')(), //CSS浏览器兼容
+            ]
+          }
+        }]
       }, {
         test: /\.(png|jpg|gif)$/,
         use: [

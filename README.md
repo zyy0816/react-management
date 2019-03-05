@@ -31,4 +31,29 @@ render 不在react包里面，在react-dom包里面
 route引入的是组件的形式，不能是函数
 
 ### 4.引入 antd创建页面布局
+
+.roadhogrc?
+{
+  "entry": "src/index.js",
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "style": "css" }]
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "style": "css" }]
+      ]
+    }
+  }
+}
+
+theme.js?
+多入口
+
+### 5.加入redux
   
