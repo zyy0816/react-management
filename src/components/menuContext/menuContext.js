@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, Menu } from 'antd';
 import "./MenuContext.less"
+import logo from "../../assets/logo.png";
 
 const SubMenu = Menu.SubMenu;
 
@@ -17,7 +18,7 @@ class MenuContext extends React.Component {
 
     return (
       <div className="zy-menu">
-        <div className="logo" />
+        <div className="logo" ><img src={logo} /></div>
         <Menu
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}

@@ -23,7 +23,7 @@ class MainLayout extends React.Component {
           <Footer>
             <div className="zy-foot">
               <p>React-manegement</p>
-              <p>技术运营支持：zyy</p>
+              <p>技术运营支持：zisu</p>
             </div>
           </Footer>
         </Layout>
