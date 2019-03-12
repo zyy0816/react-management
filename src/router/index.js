@@ -10,7 +10,10 @@ import User from './../page/user.js'
 
 import Container from './../components/mainLayout/mainLayout.js'
 import Login from './../components/login/login.js'
+
 import Show from './../actionReduxPage/page/show.js'
+
+import HomePage from './../page/homePage'
 
 class Router extends React.Component {
 
@@ -28,6 +31,7 @@ class Router extends React.Component {
             <Route path="/home" component={Home} />
             <Route path="/user" component={User} />
             <Route path="/show" component={Show} />
+            <Route path="/homePage" component={HomePage} />
           </Container>
         </Switch>
       </HashRouter>
