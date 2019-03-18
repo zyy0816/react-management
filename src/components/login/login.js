@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Layout, Form, Input, Icon, Button } from 'antd';
 import './login.less';
 import logo from "../../assets/logo.png";
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const { Footer, Content} = Layout;
 const FormItem = Form.Item;
 
 
-class Login extends React.Component {
+class Login extends Component {
 
   constructor(props) {
     super(props)
-    
+  }
+
+  submit(){
+    let { dispatch } = this.props;
+    dispatch({
+      type: 'changeLogin',
+      payload: { name: '新的标题' },
+      callback:()=>{
+        window.location.href = "#/homePage";
+      }
+    })
   }
 
   render() {
@@ -22,7 +33,7 @@ class Login extends React.Component {
         <Layout>
           <Content>
             <div className="content">
-              <div className="logo"><img src={logo}/></div>
+              {/* <div className="logo"><img src={logo}/></div> */}
               <div className="title">后台管理系统</div>
               <div>
                 <Form>
@@ -40,7 +51,7 @@ class Login extends React.Component {
                     )}
                   </FormItem>
                   <span className="forget">忘记密码</span>
-                  <Button type="primary" htmlType="submit" className="submit" ><Link to="/home">登录</Link></Button>
+                  <Button type="primary" htmlType="submit" className="submit" onClick={this.submit.bind(this)}>登录</Button>
                 </Form>
               </div>
             </div>
@@ -48,7 +59,7 @@ class Login extends React.Component {
           <Footer>
             <div className="zy-foot">
               <p>React-manegement</p>
-              <p>技术运营支持：zisu</p>
+              {/* <p>技术运营支持：zisu</p> */}
             </div>
           </Footer>
         </Layout>
@@ -58,6 +69,9 @@ class Login extends React.Component {
 
 }
 
-
 Login = Form.create({})(Login);
-export default Login;
+export default connect(state => {
+  return {
+    loginModel: state.login,
+  }
+})(Login);
