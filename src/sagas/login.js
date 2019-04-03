@@ -3,11 +3,14 @@ import { fakeAccountLogin }from './../services/userService';
 
 function* goLogin(action) {
   const { data,code } = yield call(fakeAccountLogin, action.payload);
+  console.log(data,'data')
   if(code==1){
+    sessionStorage.setItem("token","a123456");
     yield put({
       type: 'loginStore',
       payload: {
-        name: data ? data.username : ''
+        name: data ? data.username : '',
+        authority: data ? data.authority:'',
       }
     })
     action.callback&& action.callback();

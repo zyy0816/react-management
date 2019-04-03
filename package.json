@@ -20,6 +20,7 @@
   "homepage": "https://github.com/zyy0816/react-management#readme",
   "devDependencies": {
     "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/plugin-transform-runtime": "^7.3.4",
     "@babel/preset-env": "^7.3.4",

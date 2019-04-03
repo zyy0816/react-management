@@ -26,6 +26,9 @@ babelrc 安装@babel/preset-env ,
 
 render 不在react包里面，在react-dom包里面
 
+react-router被拆分成多个包了
+react-router-dom够用
+
 组件的引入不用require,使用import
 
 route引入的是组件的形式，不能是函数
@@ -58,8 +61,13 @@ thunk?
 
 ### 5.加入redux以及登入注册页面
 
-### 模拟请求
-### 路由迭代，分离用户相关页面和业务页面
+### axios模拟请求
+
+### mockjs模拟请求数据
+
+### 6.路由迭代，分离用户相关页面和业务页面
+
+
 ### redux-saga进一步整合
 
 

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Icon, Menu } from 'antd';
+import { Link } from 'react-router-dom'
 import "./MenuContext.less"
 import logo from "../../assets/logo.png";
+import menus from '../menus';
+
 
 const SubMenu = Menu.SubMenu;
 
@@ -18,15 +21,42 @@ class MenuContext extends React.Component {
 
     return (
       <div className="zy-menu">
-        <div className="logo" ><img src={logo} /></div>
+        {/* <div className="logo" ><img src={logo} /></div> */}
+        <div className="logo" ></div>
         <Menu
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
           mode="inline"
           theme="dark"
           inlineCollapsed={this.state.collapsed}
-        >
-          <SubMenu key="1" title={<span><Icon type="pie-chart" /><span>首页</span></span>}>
+        >{
+            menus.map(menu => {
+              return (
+                <SubMenu
+                  key={menu.path}
+                  title={
+                    <span>
+                      {menu.icon && <Icon type={menu.icon} />}
+                      <span>{menu.title}</span>
+                    </span>
+                  }
+                >
+                  {
+                    menu.children && menu.children.map(child => {
+                      return (
+                        <Menu.Item key={child.path}>
+                          <Link to={child.path}>
+                            {child.title}
+                          </Link>
+                        </Menu.Item>
+                      )
+                    })
+                  }
+                </SubMenu>
+              )
+            })
+          }
+          {/* <SubMenu key="1" title={<span><Icon type="pie-chart" /><span>首页</span></span>}>
             <Menu.Item key="11">工作台</Menu.Item>
             <Menu.Item key="12">分析页</Menu.Item>
             <Menu.Item key="13">监控页</Menu.Item>
@@ -47,7 +77,7 @@ class MenuContext extends React.Component {
             <Menu.Item key="51">403</Menu.Item>
             <Menu.Item key="52">404</Menu.Item>
             <Menu.Item key="53">500</Menu.Item>
-          </SubMenu>
+          </SubMenu> */}
         </Menu>
       </div>
     );

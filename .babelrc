@@ -4,6 +4,9 @@
     "@babel/preset-env",
   ],
   "plugins": [
+    [
+      "@babel/plugin-proposal-decorators", { "legacy": true }
+    ], // es6 修饰器 插件
     "@babel/plugin-transform-react-jsx",
     "@babel/plugin-transform-runtime"
   ]

@@ -1,6 +1,8 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ROOT_PATH = path.resolve(__dirname)
+const APP_PATH = path.resolve(ROOT_PATH, './src') // __dirname 中的src目录，以此类推
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -73,5 +75,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html', inject: true }),
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@': `${APP_PATH}/`,
+    },
+  }
 };

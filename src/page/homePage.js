@@ -23,7 +23,7 @@ class HomePage extends Component {
     return (
       <div>
         <h1>标题{homePageModel.name}</h1>
-        <div>小区<span>新明半岛</span></div>
+        <div>小区<span>新明半岛234234</span></div>
       </div>
     );
   }

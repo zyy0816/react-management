@@ -1,5 +1,6 @@
 const initState = {
-  name: '王五'
+  name: '登录',
+  authority:[]
 };
 let login = (state = initState, action) => {
   switch (action.type) {
