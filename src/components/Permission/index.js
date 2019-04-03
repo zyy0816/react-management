@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 @connect(({ login }) => ({ login }))
+// @connect(({ companyInfoManage, projectInfo }) => ({ companyInfoManage, projectInfo }))//组件关联
 export default class Permission extends Component {
   render() {
     const {name } = this.props;
